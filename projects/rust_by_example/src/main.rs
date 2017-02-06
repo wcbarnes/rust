@@ -1,3 +1,1 @@
-fn main() {
-    println!("Hello, world!");
-}
+fn main() {    println!("Hello, world!");    formatted_print();}fn formatted_print() {    /* Adding a variable to a println */    println!("{} days!", 31);    /* Using positional variables in println! */    println!("{0} This is {1}. {1} This is {0}", "George", "Thai");}
