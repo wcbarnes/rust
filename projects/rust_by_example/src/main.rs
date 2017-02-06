@@ -48,17 +48,4 @@ fn debug() {
 
     /* not just printing seven printing the whole structure */
     println!("Now {:?} will print!", Deep(Structure(7)));
-
-    println!("testing");
-    println!("testing");
-    println!("testing");
-
-    println!("testing");
-    println!("testing");
-    println!("testing");
-    println!("testing");
-    println!("testing");
-
-    println!("testing");
-    println!("testing");
 }
