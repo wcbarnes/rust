@@ -9,6 +9,7 @@ fn main() {
     println!("mode_mean is {}", mode_mean(&[1,2,3,3,3,3,4,5]));
     println!("mode_mean is {}", mode_mean(&[1,2,3,3,3,3,4,5,1000]));
     draw_stairs(10);
+    print_number("pow", pow(5, 3, 1));
 }
 
 fn print_number(y: &str, x: i32) {
@@ -91,5 +92,14 @@ fn draw_stairs(n: i32) {
         println!("{}", cur_stair);
     }
 }
+
+fn pow(base: i32, exponent: i32, result: i32) -> i32 {
+    if exponent <= 0 {
+        return result;
+    }
+    pow(base, exponent - 1, result * base)
+}
+
+
 
 
