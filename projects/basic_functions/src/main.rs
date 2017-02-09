@@ -3,6 +3,7 @@ fn main() {
     print_sum(10, 15);
     print_number(add_one(10));
     fizzbuzz(15);
+    println!("nth_fib {}", nth_fib(7))
 }
 
 fn print_number(x: i32) {
@@ -29,6 +30,13 @@ fn fizzbuzz(x: i32) {
             println!("{}", y);
         }
     }
+}
+
+fn nth_fib(num: i32) -> i32 {
+    if num < 2 {
+        return num;
+    }
+    return nth_fib(num - 1) + nth_fib(num - 2);
 }
 
 
