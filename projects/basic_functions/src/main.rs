@@ -6,6 +6,8 @@ fn main() {
     print_number("nth_fib", nth_fib(7));
     print_number("mean", mean(&[1,2,3,4,27]));
     print_number("mode", mode(&[1,2,2,2,2,1,1,1,1,1]));
+    println!("mode_mean is {}", mode_mean(&[1,2,3,3,3,3,4,5]));
+    println!("mode_mean is {}", mode_mean(&[1,2,3,3,3,3,4,5,1000]));
 }
 
 fn print_number(y: &str, x: i32) {
@@ -65,6 +67,13 @@ fn mode(arr: &[i32]) -> i32 {
         }
     }
     return greatest_number;
+}
+
+fn mode_mean(arr: &[i32]) -> bool {
+    if mode(arr) == mean(arr) {
+        return true;
+    }
+    false
 }
 
 
