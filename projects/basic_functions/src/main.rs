@@ -8,6 +8,7 @@ fn main() {
     print_number("mode", mode(&[1,2,2,2,2,1,1,1,1,1]));
     println!("mode_mean is {}", mode_mean(&[1,2,3,3,3,3,4,5]));
     println!("mode_mean is {}", mode_mean(&[1,2,3,3,3,3,4,5,1000]));
+    draw_stairs(10);
 }
 
 fn print_number(y: &str, x: i32) {
@@ -74,6 +75,21 @@ fn mode_mean(arr: &[i32]) -> bool {
         return true;
     }
     false
+}
+
+fn draw_stairs(n: i32) {
+    for i in 0..n+1 {
+        let mut cur_stair: String = "".to_owned();
+        for j in 0..n-i {
+            let space: &str = " ";
+            cur_stair.push_str(space);
+        }
+        for j in n-i..n {
+            let star: &str = "*";
+            cur_stair.push_str(star);
+        }
+        println!("{}", cur_stair);
+    }
 }
 
 
