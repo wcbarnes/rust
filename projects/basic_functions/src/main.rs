@@ -1,15 +1,15 @@
 fn main() {
-    print_number(5);
+    print_number("five", 5);
     print_sum(10, 15);
-    print_number(add_one(10));
+    print_number("add_one", add_one(10));
     fizzbuzz(15);
-    print_number(nth_fib(7));
-    let arr: [i32; 5] = [1,2,3,4,5];
-    print_number(mean(&arr));
+    print_number("nth_fib", nth_fib(7));
+    print_number("mean", mean(&[1,2,3,4,27]));
+    print_number("mode", mode(&[1,2,2,2,2,1,1,1,1,1]));
 }
 
-fn print_number(x: i32) {
-    println!("x is: {}", x);
+fn print_number(y: &str, x: i32) {
+    println!("{} is: {}", y, x);
 }
 
 fn print_sum(x: i32, y: i32) {
@@ -47,6 +47,24 @@ fn mean(arr: &[i32]) -> i32 {
         sum = sum + i;
     }
     return sum / arr.len() as i32;
+}
+
+fn mode(arr: &[i32]) -> i32 {
+    use std::collections::HashMap;
+    let mut occurrences = HashMap::new();
+    let mut greatest_count: i32 = -2000000000;
+    let mut greatest_number: i32 = 0;
+    for i in arr {
+        let count = occurrences.entry(i.to_string()).or_insert(0);
+        *count += 1;
+    }
+    for (number, count) in &occurrences {
+        if *count as i32 > greatest_count {
+            greatest_count = *count as i32;
+            greatest_number = number.parse().unwrap();
+        }
+    }
+    return greatest_number;
 }
 
 
