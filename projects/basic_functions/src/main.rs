@@ -4,6 +4,8 @@ fn main() {
     print_number(add_one(10));
     fizzbuzz(15);
     print_number(nth_fib(7));
+    let arr: [i32; 5] = [1,2,3,4,5];
+    print_number(mean(&arr));
 }
 
 fn print_number(x: i32) {
@@ -36,7 +38,15 @@ fn nth_fib(num: i32) -> i32 {
     if num < 2 {
         return num;
     }
-    return nth_fib(num - 1) + nth_fib(num - 2);
+    nth_fib(num - 1) + nth_fib(num - 2)
+}
+
+fn mean(arr: &[i32]) -> i32 {
+    let mut sum = 0;
+    for i in arr {
+        sum = sum + i;
+    }
+    return sum / arr.len() as i32;
 }
 
 
